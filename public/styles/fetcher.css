@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+body {
+  font-family: 'Zen Dots', cursive;
+}
+
+.cst-header {
+  margin-bottom: 50px;
+}
+
+.cst-header {
+  padding: 10px 80px;
+  height: 100px;
+  background-color: rgb(14, 107, 5);
+  border-radius: 0 0 30px 30px;
+  color: rgb(255, 255, 255);
+}
+.cst-header h1 {
+  font-size: 58px;
+}
+.cst-img {
+  height: 100%;
+}
+.cst-logo {
+  height: 120px;
+  font-size: 120px;
+  line-height: 120px;
+  color:rgb(24, 88, 32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cst-description {
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+#json-display {
+  /* background-color: rgb(42, 14, 55); */
+}
+#modal-image-preview {
+  width: 100%;
+}
+.activate-json-links .json-url {
+  cursor: pointer;
+}
+
+.cst-loading {
+  display: flex;
+  justify-content: center;
+}
+.cst-loading div {
+  width: 1rem;
+  height: 1rem;
+  margin: 2rem 0.3rem;
+  background: #979fd0;
+  border-radius: 50%;
+  animation: 0.9s bounce infinite alternate;
+}
+.cst-loading div:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.cst-loading div:nth-child(3) {
+  animation-delay: 0.6s;
+}
+@keyframes bounce {
+  to {
+    opacity: 0.3;
+    transform: translate3d(0, -1rem, 0);
+  }
+}

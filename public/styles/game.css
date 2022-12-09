@@ -1,0 +1,129 @@
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 120s ease infinite;
+	height: 100vh;
+}
+
+.cst-main-content {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+td {
+  padding: 3px;
+}
+
+.game-board {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cst-card-border {
+  border: 10px solid #F2E0C7;
+  border-radius: 5px;
+}
+.cst-card {
+  width: 140px;
+  height: 80px;
+  background-color: #EFD9B9;
+  box-shadow: 0px 0px 0px 1.5px rgb(177, 169, 139);
+  position: relative;
+}
+
+.cst-blue .cst-card-border {
+  border: 10px solid #c7f2f1;
+  border-radius: 5px;
+}
+.cst-blue .cst-card {
+  background-color: #87e7ec;
+  box-shadow: 0px 0px 0px 1.5px rgb(139, 204, 202);
+}
+
+.cst-red .cst-card-border {
+  border: 10px solid #d69665;
+}
+.cst-red .cst-card {
+  background-color: #e39b4f;
+  box-shadow: 0px 0px 0px 1.5px rgb(152, 86, 31);
+}
+
+.cst-dark .cst-card-border {
+  border: 10px solid #5e5e5e;
+}
+.cst-dark .cst-card {
+  background-color: #6a6a6a;
+  box-shadow: 0px 0px 0px 1.5px rgb(60, 60, 60);
+}
+
+.cst-card-text {
+  background-color: #fff;
+  width: 95%;
+  text-align: center;
+  border-radius: 4px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -15%);
+}
+
+.cst-panel {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.header {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.cst-input {
+  display: flex;
+  justify-content: center;
+}
+
+.game-board {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.game-table {
+  margin-bottom: 10px;
+}
+
+.tip-box {
+  font-size: 24px;
+  display: flex;
+}
+
+.cst-tip {
+  background: rgb(255, 255, 255);
+  padding: 2px 14px;
+  border-radius: 10px;
+}
+.cst-red .cst-tip {
+  border: 5px solid rgb(245, 99, 45);
+}
+.cst-blue .cst-tip {
+  border: 5px solid rgb(55, 238, 244);
+}
+
+#words-count {
+  width: 40px;
+}

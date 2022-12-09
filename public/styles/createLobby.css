@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+.cst-header {
+  margin-bottom: 50px;
+}
+
+.cst-header {
+  padding: 10px 80px;
+  height: 100px;
+  background-color: rgb(29, 184, 208);
+  border-radius: 0 0 30px 30px;
+  color: rgb(255, 255, 255);
+}
+.cst-header h1 {
+  font-size: 58px;
+}
