@@ -127,6 +127,8 @@ callApiForm.addEventListener('submit', async (event) => {
     loadingAnimationBody.hidden = true;
   }, 9000);
 
+  const start = Date.now();
+
   let response;
   switch (methodApi.value.toLowerCase()) {
     case 'post':
@@ -169,6 +171,12 @@ callApiForm.addEventListener('submit', async (event) => {
 
     const editor = new JsonEditor('#json-display', getJson());
     editor.load(getJson());
+    NolertNotify.trigger({
+      message: `Request executed in ${Date.now() - start} ms`,
+      position: 'top-right',
+      iconType: 'success',
+      type: 'success',
+    });
     loadingAnimationBody.hidden = true;
     jsonContainer.hidden = false;
   } else {
