@@ -7,27 +7,25 @@ module.exports = function Lobby({ user, title, wordsGroups }) {
       <script src="https://cdn.socket.io/4.5.4/socket.io.min.js" integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI" crossOrigin="anonymous" />
       <nav>
         <div className="header">
-          <div>Наблюдатели</div>
-          <div className="unresolved-players">
-            Игрок1 Игрок2
-          </div>
+          <div>Наблюдатели:</div>
+          <div id="spectators" className="unresolved-players" />
         </div>
       </nav>
       <main>
         <div className="cst-main-content">
           <div className="red-team">
             <div className="red-team-panel cst-panel">
-              <div className="red-word-counter">9</div>
+              <div id="red-cards-counter" className="red-word-counter">9</div>
               <div>Следователь:</div>
-              <div className="red-operative">-</div>
-              <input type="button" value="буду следователем" />
+              <div id="red-operative" className="red-operative">-</div>
+              <input id="red-operative-btn" type="button" value="буду следователем" />
               <div>Шпион:</div>
-              <div className="red-spy">-</div>
-              <input type="button" value="буду шпионом" />
+              <div id="red-spy" className="red-spy">-</div>
+              <input id="red-spy-btn" type="button" value="буду шпионом" />
             </div>
           </div>
           <div className="game-board">
-            <table className="game-table">
+            <table id="main-table-content" className="game-table">
               <tbody className="game-tbody">
                 {
                   wordsGroups.map((wordsGroup) => (
@@ -48,17 +46,27 @@ module.exports = function Lobby({ user, title, wordsGroups }) {
                 }
               </tbody>
             </table>
-            <div className="guess-panel" />
+            <div className="guess-panel">
+              <div id="guest-spy-panel" className="cst-input">
+                <input id="guest-spy-word" type="text" name="word-tip" id="word-tip" required maxLength={25} />
+                <input id="guest-spy-count" type="number" name="words-count" id="words-count" min={1} max={9} defaultValue={1} required />
+                <input type="button" value="Намекнуть" />
+              </div>
+              <div id="guest-operative-panel" className="tip-box cst-blue">
+                <div id="guest-operative-word" className="tip-message cst-tip">hello</div>
+                <div id="guest-operative-count" className="match-word-count cst-tip">5</div>
+              </div>
+            </div>
           </div>
           <div className="blue-team">
             <div className="blue-team-panel cst-panel">
-              <div className="blue-word-counter">9</div>
+              <div id="blue-cards-counter" className="blue-word-counter">9</div>
               <div>Следователь:</div>
-              <div className="blue-operative">-</div>
-              <input type="button" value="буду следователем" />
+              <div id="blue-operative" className="blue-operative">-</div>
+              <input id="blue-operative-btn" type="button" value="буду следователем" />
               <div>Шпион:</div>
-              <div className="blue-spy">-</div>
-              <input type="button" value="буду шпионом" />
+              <div id="blue-spy" className="blue-spy">-</div>
+              <input id="blue-spy-btn" type="button" value="буду шпионом" />
             </div>
           </div>
         </div>

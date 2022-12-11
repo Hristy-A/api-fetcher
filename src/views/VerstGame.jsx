@@ -27,10 +27,10 @@ module.exports = function Verst({ user, title }) {
           </div>
           <div className="game-board">
 
-            <table className="game-table">
+            <table className="game-table game-table-selectable">
               <tbody className="game-tbody">
                 <tr className="game-row">
-                  <td className="game-cell cst-blue">
+                  <td className="game-cell cst-blue cst-solved">
                     <div className="cst-card-border">
                       <div className="cst-card">
                         <div className="cst-card-text">random</div>
@@ -44,14 +44,14 @@ module.exports = function Verst({ user, title }) {
                       </div>
                     </div>
                   </td>
-                  <td className="game-cell cst-dark">
+                  <td className="game-cell cst-dark cst-solved">
                     <div className="cst-card-border">
                       <div className="cst-card">
                         <div className="cst-card-text">random</div>
                       </div>
                     </div>
                   </td>
-                  <td className="game-cell">
+                  <td className="game-cell cst-solved">
                     <div className="cst-card-border">
                       <div className="cst-card">
                         <div className="cst-card-text">random</div>
@@ -219,7 +219,7 @@ module.exports = function Verst({ user, title }) {
             <div className="guess-panel">
               {/* <div className="cst-input">
                 <input type="text" name="word-tip" id="word-tip" required />
-                <input type="number" name="words-count" id="words-count" min={1} max={9} required />
+                <input type="number" name="words-count" id="words-count" min={1} max={9} defaultValue={1} required />
                 <input type="button" value="Намекнуть" />
               </div> */}
               {/* <div className="tip-box cst-blue">

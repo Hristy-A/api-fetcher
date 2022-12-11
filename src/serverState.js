@@ -28,10 +28,33 @@ function genPosField() {
 
 class Lobby {
   constructor(owner, wordsLibrary) {
-    this.owner = owner;
     this.id = getUUID();
-    this.players = owner;
+    this.owner = owner;
+    this.spectators = [owner];
+    this.redOperative = null;
     this._wordsLibrary = wordsLibrary;
+  }
+
+  addUser(user) {
+    this.spectators.push(user);
+  }
+
+  getCurrentGameState() {
+    return {
+      spectators: this.spectators.map((s) => s.nickname).join(' '),
+
+      redTeamCounter: this.redTeamCounter,
+      redOperative: this.redOperative?.nickname ?? '-',
+      redOperativeBtnVisible: !!this.redOperative,
+      redSpy: this.redSpy?.nickname ?? '-',
+      redSpyBtnVisible: !!this.redSpy,
+
+      blueTextCounter: this.blueTextCounter,
+      blueOperative: this.blueOperative?.nickname ?? '-',
+      blueOperativeBtnVisible: !!this.blueOperative,
+      blueSpy: this.blueSpy?.nickname ?? '-',
+      blueSpyBtnVisible: !!this.blueSpy,
+    };
   }
 
   get groups() {
@@ -48,11 +71,11 @@ class Lobby {
     }
 
     if (this.firstMove === 'blue') {
-      this.blueCardsCount = 9;
-      this.redCardsCount = 8;
+      this.blueTeamCounter = 9;
+      this.redTeamCounter = 8;
     } else {
-      this.blueCardsCount = 8;
-      this.redCardsCount = 9;
+      this.blueTeamCounter = 8;
+      this.redTeamCounter = 9;
     }
 
     const possiblePositions = genPosField();
@@ -95,7 +118,7 @@ class Lobby {
     return groups;
   }
 
-  generateWordPreset() {
+  generateFieldPreset() {
     const groups = this.generateGameField();
     this.initialized = true;
     return groups;
@@ -130,6 +153,11 @@ module.exports = class ServerState {
     const lobby = this.findLobby(lobbyId);
     if (lobby.initialized) return lobby.groups;
 
-    return lobby?.generateWordPreset();
+    return lobby?.generateFieldPreset();
+  }
+
+  getCurrentGameState(lobbyId) {
+    const lobby = this.findLobby(lobbyId);
+    return lobby.getCurrentGameState();
   }
 };

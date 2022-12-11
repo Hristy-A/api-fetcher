@@ -10,10 +10,17 @@ module.exports = function configureSockets(io, app, server, serverState, session
       return;
     }
 
-    console.log(socket.id);
-    console.log(socket.request.session.user.id);
-    socket.to(socket.request.session.user.lobbyId).emit('connected', socket.request.session.user);
+    console.log(`socket id ${socket.id}`);
+    console.log(`user id ${socket.request.session.user.id}`);
+    console.log(`lobby id ${socket.request.session.user.lobbyId}`);
 
-    socket.emit('game-state');
+    // socket.join(socket.request.session.user.lobbyId);
+    // socket.in(socket.request.session.user.lobbyId).emit('current-game-state', app.serverState.getCurrentGameState(socket.request.session.user.lobbyId));
+
+    io.in(socket.request.session.user.lobbyId).emit('eaf', socket.request.session.user.nickname);
+
+    socket.on('disconnect', () => {
+      io.to(socket.request.session.user.lobbyId);
+    });
   });
 };
