@@ -7,7 +7,7 @@ const ssr = require('../middlewares/ssr');
 module.exports = function configureApp(app) {
   app.set('x-powered-by', false);
 
-  process.env.PORT ??= 3000;
+  process.env.PORT = process.env.PORT ?? 3000;
 
   app.use(morgan('dev'));
   app.use(express.json());
